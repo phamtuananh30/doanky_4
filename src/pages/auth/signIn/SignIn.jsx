@@ -24,7 +24,7 @@ export const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { status, error, userInfo } = useSelector((state) => state.auth);
-  const { setIsAuthenticated } = useContext(AppContext);
+  const { setIsAuthenticated, setProfile } = useContext(AppContext);
   const {
     handleSubmit,
     register,
@@ -41,8 +41,8 @@ export const SignIn = () => {
     } else if (status === FULFILLED) {
       toast("Đăng nhập thành công");
       setIsAuthenticated(true);
-      console.log(userInfo);
       localStorage.setItem("user", JSON.stringify(userInfo));
+      setProfile(userInfo);
       dispatch(resetStatus());
       if (userInfo) {
         if (userInfo.roles?.find((role) => role.name === ROLE_ADMIN)) {

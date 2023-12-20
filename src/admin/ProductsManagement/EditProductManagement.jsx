@@ -12,6 +12,7 @@ export default function EditProductManagement() {
   const { data, isLoading, error } = useSwr("/category/getAll", (endpoint) =>
     apiClient.get(endpoint).then((data) => data)
   );
+  console.log(data);
   const {
     data: productData,
     isLoading: isLoading2,
@@ -59,6 +60,7 @@ export default function EditProductManagement() {
       //   { id: categoryId, name: categoryName },
       // ]);
     }
+    console.log(productData?.categories);
   };
 
   const handleSpecificationsChange = (index, type, value) => {
@@ -88,6 +90,8 @@ export default function EditProductManagement() {
       specifications: [...formRef.current.specifications, newSpec],
     };
   };
+
+  // console.log(productData.categories);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -307,7 +311,6 @@ export default function EditProductManagement() {
             />
           </div>
           <div className={clsx(Styles.demo)}>
-            <div>demo</div>
             <ul className={clsx(Styles.selected_type)}>
               {selectedCategories.map((category, index) => (
                 <li key={index}>{category.name}</li>
