@@ -1,0 +1,54 @@
+
+.list_user {
+    margin: 20px;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 25px;
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 9px 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        td:nth-child(2) {
+            word-break: break-all;
+        }
+    }
+}
+
+
+.list_user table {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+}
+
+.list_user table th,
+.list_user table td:first-child {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    text-align: center;
+
+}
+
+.list_user table td {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+.list_user table tr:hover {
+    background-color: #ccc;
+}

@@ -1,0 +1,106 @@
+.add_product {
+    padding: 40px;
+}
+
+.text {
+    color: var(--8A92A6-Text-Color-2, #8a92a6);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 175%;
+}
+
+.flex {
+    display: flex;
+    gap: 40px;
+}
+
+form {
+    width: 100%;
+}
+
+form>div:first-child {
+    width: 60%;
+}
+
+form>div:last-child {
+    flex: 1;
+}
+
+.basic_information,
+.other_information {
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.title_form {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+
+.input{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    // justify-content: flex-end;
+    gap: 15px;
+}
+
+.basic_information input {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 3px;
+    flex: 1;
+}
+
+.basic_information label {
+    min-width: 120px;
+    text-align: end;
+}
+
+
+
+.other_information:not(:first-child) {
+    margin-top: 20px;
+}
+
+
+
+
+.add_product table {
+    height: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.add_product table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.selected_type {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.selected_type li {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: rgb(71, 188, 71);
+}
+
+.demo {
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+
+}
