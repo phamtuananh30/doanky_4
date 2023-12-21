@@ -224,8 +224,8 @@ function Header() {
   };
   const { isAuthenticated, profile } = useContext(AppContext);
   const categorys = [
-    { name: " Laptop - Máy Tính Xách Tay 1" },
-    { name: " Laptop - Máy Tính Xách Tay 2" },
+    { name: " Laptop - Máy Tính Xách Tay" },
+    { name: " máy tính chơi game" },
     { name: " Laptop - Máy Tính Xách Tay 3" },
     { name: " Laptop - Máy Tính Xách Tay 4" },
     { name: " Laptop - Máy Tính Xách Tay 5" },
