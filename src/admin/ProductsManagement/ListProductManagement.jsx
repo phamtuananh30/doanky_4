@@ -6,13 +6,15 @@ import useSwr from "swr";
 import { apiClient } from "../../services/API";
 
 const ListProductManagement = () => {
-  const { data, isLoading, error } = useSwr("/product/getAll", (endpoint) =>
-    apiClient.get(endpoint).then((data) => data)
+  const { data, isLoading, error, mutate } = useSwr(
+    "/product/getAll",
+    (endpoint) => apiClient.get(endpoint).then((data) => data)
   );
 
   const handleDelete = async (productId) => {
     try {
       await apiClient.patch(`/product/updateDisable/${productId}`);
+      mutate("/product/getAll");
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -27,7 +29,13 @@ const ListProductManagement = () => {
       <div className={clsx(Styles.list_product, Styles.flex)}>
         <table>
           <thead>
-            <tr>
+            <tr
+              style={{
+                cursor: "pointer",
+                textTransform: "uppercase",
+                fontSize: "14px",
+              }}
+            >
               <th>Stt</th>
               <th>Title</th>
               <th>Warranty Period</th>
@@ -39,8 +47,15 @@ const ListProductManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {data.data.map((product, index) => (
-              <tr key={index}>
+            {data?.data?.map((product, index) => (
+              <tr
+                key={index}
+                style={{
+                  cursor: "pointer",
+                  textTransform: "uppercase",
+                  fontSize: "14px",
+                }}
+              >
                 <td>{index + 1}</td>
                 <td>{product.title}</td>
                 <td>{product.warrantyPeriod}</td>

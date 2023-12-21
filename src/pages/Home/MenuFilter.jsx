@@ -4,11 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import clsx from "clsx";
 import Styles from "./HomePage.module.scss";
 
-export default function MenuFilter(props) {
-  //   const { data, isLoading, error } = useSwr('/category/getAll', (endpoint) => apiClient.get(endpoint).then(data => data))
-  //   if (isLoading) {
-  //     return <div>...loading</div>
-  //   }
+export default function MenuFilter({ filter, setFilter }) {
   const dataFilter = [
     {
       title: " hãng sản xuất ",
@@ -17,15 +13,6 @@ export default function MenuFilter(props) {
         { content: "ASUS" },
         { content: "dell" },
         { content: "INTEL" },
-      ],
-    },
-    {
-      title: "KHOẢNG GIÁ",
-      items: [
-        { content: "2 triệu - 3 triệu" },
-        { content: "3 triệu - 6 triệu" },
-        { content: "6 triệu - 12 triệu" },
-        { content: "trên 12 triệu" },
       ],
     },
     {
@@ -40,23 +27,73 @@ export default function MenuFilter(props) {
   ];
 
   const Filter = "";
-
+  function handleOnChange(e) {
+    setFilter({ ...filter, [e.target.name]: e.target.value });
+  }
+  function handleOnChangeRam(e) {
+    if (e.target.checked) {
+      setFilter({ ...filter, ram: e.target.value });
+    } else {
+      setFilter({ ...filter, ram: "" });
+    }
+  }
   if (dataFilter) {
     return (
       <div className={clsx(Styles.menu_filter)}>
-        {dataFilter.map((category, index) => (
-          <div key={index} className={clsx(Styles.group_filter)}>
-            <div className={clsx(Styles.title_filter)}>{category.title}</div>
-            <div className={clsx(Styles.item_filter)}>
-              {category.items.map((item, itemIndex) => (
-                <div key={itemIndex} className={clsx(Styles.filter)}>
-                  <input type="checkbox" value={item.content} readOnly />
-                  <label>{item.content}</label>
+        {dataFilter.map((category, index) => {
+          if (category.title === " Dung lượng RAM ") {
+            return (
+              <div key={index} className={clsx(Styles.group_filter)}>
+                <div className={clsx(Styles.title_filter)}>
+                  {category.title}
                 </div>
-              ))}
+                <div className={clsx(Styles.item_filter)}>
+                  {category.items.map((item, itemIndex) => (
+                    <div key={itemIndex} className={clsx(Styles.filter)}>
+                      <input
+                        type="checkbox"
+                        value={item.content}
+                        onChange={handleOnChangeRam}
+                        readOnly
+                      />
+                      <label>{item.content}</label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+          return (
+            <div key={index} className={clsx(Styles.group_filter)}>
+              <div className={clsx(Styles.title_filter)}>{category.title}</div>
+              <div className={clsx(Styles.item_filter)}>
+                {category.items.map((item, itemIndex) => (
+                  <div key={itemIndex} className={clsx(Styles.filter)}>
+                    <input type="checkbox" value={item.content} readOnly />
+                    <label>{item.content}</label>
+                  </div>
+                ))}
+              </div>
             </div>
+          );
+        })}
+        <div className={clsx(Styles.group_filter)}>
+          <div className={clsx(Styles.title_filter)}>Khoảng giá</div>
+          <div className={clsx(Styles.item_filter)}>
+            <input
+              placeholder="Khoảng đầu"
+              type="number"
+              name="first"
+              onChange={handleOnChange}
+            />
+            <input
+              placeholder="Khoảng cuối"
+              type="number"
+              name="last"
+              onChange={handleOnChange}
+            />
           </div>
-        ))}
+        </div>
       </div>
     );
   }

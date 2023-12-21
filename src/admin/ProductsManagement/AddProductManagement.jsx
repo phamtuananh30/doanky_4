@@ -259,10 +259,14 @@ const AddProductManagement = () => {
 
   return (
     <div className={clsx(Styles.add_product, Styles.text)}>
-      <form onSubmit={handleSubmit} className={clsx(Styles.flex)}>
+      <form
+        onSubmit={handleSubmit}
+        className={clsx(Styles.flex)}
+        style={{ fontSize: "13px", textTransform: "uppercase" }}
+      >
         {/* Các trường nhập liệu cho sản phẩm */}
         <div className={clsx(Styles.basic_information)}>
-          <div className={clsx(Styles.title_form)}>
+          <div className={clsx(Styles.title_form)} style={{ fontSize: "17px" }}>
             Basic product information
           </div>
           <div className={clsx(Styles.input)}>
@@ -312,7 +316,6 @@ const AddProductManagement = () => {
             />
           </div>
           <div className={clsx(Styles.demo)}>
-            <div>demo</div>
             <ul className={clsx(Styles.selected_type)}>
               {selectedCategories.map((category, index) => (
                 <li key={index}>{category.name}</li>
@@ -322,10 +325,10 @@ const AddProductManagement = () => {
           </div>
         </div>
 
-        <div>
+        <div className={clsx(Styles.button_div)}>
           {renderFormSpecifications()}
           {renderFormCategory()}
-          <button style={{ fontSize: "14px", color: "while" }} type="submit">
+          <button className={clsx(Styles.button_submit)} type="submit">
             Submit
           </button>
         </div>

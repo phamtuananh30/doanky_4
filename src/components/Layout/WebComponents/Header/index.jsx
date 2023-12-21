@@ -226,12 +226,10 @@ function Header() {
   const categorys = [
     { name: " Laptop - Máy Tính Xách Tay" },
     { name: " máy tính chơi game" },
-    { name: " Laptop - Máy Tính Xách Tay 3" },
-    { name: " Laptop - Máy Tính Xách Tay 4" },
-    { name: " Laptop - Máy Tính Xách Tay 5" },
-    { name: " Laptop - Máy Tính Xách Tay 6" },
-    { name: " Laptop - Máy Tính Xách Tay 7" },
-    { name: " Laptop - Máy Tính Xách Tay 8" },
+    { name: " máy tính văn phòng" },
+    { name: " màn hình máy tính" },
+    { name: " linh kiện máy tính" },
+    { name: "camera" },
   ];
   const navigate = useNavigate();
   const handleCLickLogin = () => {
@@ -305,7 +303,7 @@ function Header() {
               renderPopover={<ButtonLogout onclick={handleLogoutClick} />}
             >
               <div className="flex items-center text-white">
-                {profile?.email}
+                Xin chào: {profile?.email}
               </div>
             </Popover>
           ) : (
@@ -322,7 +320,7 @@ function Header() {
             <img src={logo} alt="" />
           </Link>
           <div>
-            <ul className={clsx(Styles.item_hot)}>
+            <ul className={clsx(Styles.item_hot)} style={{ cursor: "pointer" }}>
               <li>Ghế gaming</li>
               <li>Màn hình máy tính</li>
               <li>Laptop</li>
@@ -330,7 +328,10 @@ function Header() {
               <li>CPU</li>
               <li>Card màn hình</li>
             </ul>
-            <div className={clsx(Styles.group_search)}>
+            <div
+              className={clsx(Styles.group_search)}
+              style={{ cursor: "pointer", textTransform: "uppercase" }}
+            >
               <div className={clsx(Styles.search_by_category)}>
                 Tất cả danh mục
                 <div className={clsx(Styles.item_category)}>

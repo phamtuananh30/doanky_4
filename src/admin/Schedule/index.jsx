@@ -172,7 +172,14 @@ export default function Schedule() {
   // }
 
   return (
-    <div className={clsx(Styles.Schedule, Styles.text)}>
+    <div
+      className={clsx(Styles.Schedule, Styles.text)}
+      style={{
+        cursor: "pointer",
+        textTransform: "uppercase",
+        fontSize: "14px",
+      }}
+    >
       <button onClick={() => updateCurrentMonthAndYear(-1)}>
         Previous Month
       </button>
