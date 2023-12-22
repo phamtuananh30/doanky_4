@@ -14,7 +14,7 @@ import { store } from "./redux/store.js";
 import Loading from "./components/Loading/Loading.jsx";
 import { createTheme } from "@mui/material";
 import { AppProvider } from "./context/app.context.jsx";
-
+import BackToTopButton from "./pages/backtotop.jsx";
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -36,5 +36,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </GlobalStyles>
       </Provider>
     </ThemeProvider>
+    <BackToTopButton></BackToTopButton>
   </>
 );

@@ -18,10 +18,20 @@ export default function MenuFilter({ filter, setFilter }) {
     {
       title: " Dung lượng RAM ",
       items: [
+        { content: "8G" },
         { content: "16G" },
         { content: "24G" },
         { content: "32G" },
-        { content: "8G" },
+        { content: "64G" },
+      ],
+    },
+    {
+      title: " vga trang bị ",
+      items: [
+        { content: "amd rx" },
+        { content: "nvdia gt" },
+        { content: "nvdia gtx" },
+        { content: "nvdia rtx" },
       ],
     },
   ];
